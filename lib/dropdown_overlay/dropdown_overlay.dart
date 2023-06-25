@@ -119,7 +119,7 @@ class _DropdownOverlayState extends State<_DropdownOverlay> {
       displayOverlayBottom
           ? Icons.keyboard_arrow_up_rounded
           : Icons.keyboard_arrow_down_rounded,
-      color: Colors.black,
+      color: Theme.of(context).colorScheme.onSurface,
       size: 20,
     );
 
@@ -177,12 +177,15 @@ class _DropdownOverlayState extends State<_DropdownOverlay> {
               padding: _overlayOuterPadding,
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.onInverseSurface,
                   borderRadius: borderRadius,
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 24.0,
-                      color: Colors.black.withOpacity(.08),
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onSurface
+                          .withOpacity(.08),
                       offset: _overlayShadowOffset,
                     ),
                   ],
@@ -329,7 +332,7 @@ class _DropdownOverlayState extends State<_DropdownOverlay> {
                                       ),
                                     ),
                                 if (isSearchRequestLoading)
-                                  const Padding(
+                                  Padding(
                                     padding:
                                         EdgeInsets.symmetric(vertical: 20.0),
                                     child: Center(
@@ -337,7 +340,9 @@ class _DropdownOverlayState extends State<_DropdownOverlay> {
                                       width: 25,
                                       height: 25,
                                       child: CircularProgressIndicator(
-                                        color: Colors.black,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .surface,
                                         strokeWidth: 3,
                                       ),
                                     )),
